@@ -214,24 +214,14 @@ void Sim::step() {
             // apply rules to the cell
             std::vector<Operation> results = applyRules(row, col);
 
-            // for (Operation op : results) {
-            //     std::cout << "C: " << op << std::endl;
-            // }
-
             // add any resultant operations to this step's operations list
             std::copy(results.begin(), results.end(), std::back_inserter(operations));
-            // operations.insert(operations.end(), results.begin(), results.end());
         }
     }
 
-    // for (Operation op : operations) {
-    //     std::cout << "F: " << op << std::endl;
-    // }
-
     // apply any operations for the step to the grid
     for (Operation operation : operations) {
-        grid.set(operation.row, operation.col, operation.state);
-        // std::cout << "set grid(" << operation.row << ", " << operation.col << ") to " << grid.getString(operation.row, operation.col) << std::endl;
+        grid.set(operation.row, operation.col, operation.state);    
     }
 }
 
